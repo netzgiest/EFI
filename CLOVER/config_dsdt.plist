@@ -10,33 +10,65 @@
 			<false/>
 			<key>DropMCFG</key>
 			<false/>
-			<key>DropOEM_DSM</key>
+			<key>Fixes</key>
 			<dict>
-				<key>ATI</key>
+				<key>AddDTGP_0001</key>
 				<false/>
-				<key>Firewire</key>
+				<key>AddHDMI_8000000</key>
 				<false/>
-				<key>HDA</key>
+				<key>AddIMEI_80000</key>
 				<false/>
-				<key>HDMI</key>
+				<key>AddMCHC_0008</key>
 				<false/>
-				<key>IDE</key>
+				<key>AddPNLF_1000000</key>
 				<false/>
-				<key>IntelGFX</key>
+				<key>DeleteUnused_400000</key>
 				<false/>
-				<key>LAN</key>
+				<key>FIX_ACST_4000000</key>
 				<false/>
-				<key>LPC</key>
+				<key>FIX_ADP1_800000</key>
 				<false/>
-				<key>NVidia</key>
+				<key>FIX_INTELGFX_100000</key>
 				<false/>
-				<key>SATA</key>
+				<key>FIX_RTC_20000</key>
 				<false/>
-				<key>SmBUS</key>
+				<key>FIX_S3D_2000000</key>
 				<false/>
-				<key>USB</key>
+				<key>FakeLPC_0020</key>
 				<false/>
-				<key>WIFI</key>
+				<key>FiX_TMR_40000</key>
+				<false/>
+				<key>FiX_WAK_200000</key>
+				<false/>
+				<key>FixAirport_4000</key>
+				<false/>
+				<key>FixDarwin_0002</key>
+				<false/>
+				<key>FixDisplay_0100</key>
+				<false/>
+				<key>FixFirewire_0800</key>
+				<false/>
+				<key>FixHDA_8000</key>
+				<false/>
+				<key>FixHPET_0010</key>
+				<false/>
+				<key>FixIDE_0200</key>
+				<false/>
+				<key>FixIPIC_0040</key>
+				<false/>
+				<key>FixLAN_2000</key>
+				<false/>
+				<key>FixRegions_10000000</key>
+				<true/>
+				<key>FixSATA_0400</key>
+				<false/>
+				<key>FixSBUS_0080</key>
+				<false/>
+				<key>FixShutdown_0004</key>
+				<false/>
+				<key>FixUSB_1000</key>
+				<false/>
+				<key>NewWay_80000000</key>
 				<false/>
 			</dict>
 			<key>Name</key>
@@ -155,6 +187,17 @@
 		</dict>
 		<key>InjectString</key>
 		<false/>
+		<key>USB</key>
+		<dict>
+			<key>AddClockID</key>
+			<true/>
+			<key>FixOwnership</key>
+			<true/>
+			<key>HighCurrent</key>
+			<true/>
+			<key>Inject</key>
+			<true/>
+		</dict>
 		<key>UseIntelHDMI</key>
 		<true/>
 	</dict>
@@ -282,6 +325,8 @@
 		<dict>
 			<key>ATI</key>
 			<false/>
+			<key>Intel</key>
+			<true/>
 			<key>NVidia</key>
 			<false/>
 		</dict>
@@ -310,247 +355,6 @@
 		<false/>
 		<key>KernelPm</key>
 		<false/>
-		<key>KextsToPatch</key>
-		<array>
-			<dict>
-				<key>Comment</key>
-				<string>AppleGraphicsDevicePolicy (board-id) Patch (c) Pike R. Alpha</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				Ym9hcmQtaWQ=
-				</data>
-				<key>Name</key>
-				<string>AppleGraphicsDevicePolicy</string>
-				<key>Replace</key>
-				<data>
-				Ym9hcmQtaXg=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>USB3 patch1 dont check chip</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				dVtJiwZIjTWC+wAATIn3/w==
-				</data>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				61tJiwZIjTWC+wAATIn3/w==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>USB3 patch2 dont check xhci version</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				4GY9AAEPguwLAABJi4bAAg==
-				</data>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				4GY9AAAPguwLAABJi4bAAg==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>USB3 patch3 interrupts-1</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				gUkIAABAAEGB5P//DwBECQ==
-				</data>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				gUkIAAAAAEGB5P//DwBECQ==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>USB3 patch4 interrupts-2</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				QQ9Oz0HHRCQIAABAAIC9Zw==
-				</data>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				QQ9Oz0HHRCQIAAAAAIC9Zw==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>USB3 patch5 interrupts-3</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AEAAQYtGDIPgATUBHAAAgA==
-				</data>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				AAAAQYtGDIPgATUBHAAAgA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>USB3 patch6 restart after wake</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				yAAAAAHGg386AgAASIu76A==
-				</data>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				yAAAAADGg386AgAASIu76A==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>USB3 patch7 PCI PM if not DSDT</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AgAASIXAdSZIi7voAQAASA==
-				</data>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				AgAASIXA6yZIi7voAQAASA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Atheros locale fix</string>
-				<key>Find</key>
-				<data>
-				g/s3
-				</data>
-				<key>Name</key>
-				<string>AirPortAtheros40</string>
-				<key>Replace</key>
-				<data>
-				g/sh
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Brumbaer's GDP Patch 1</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				RURJRAA=
-				</data>
-				<key>Name</key>
-				<string>AppleGraphicsDevicePolicy</string>
-				<key>Replace</key>
-				<data>
-				RURJSQA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Brumbaer's GDP Patch 2</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				dW5sb2FkAA==
-				</data>
-				<key>Name</key>
-				<string>AppleGraphicsDevicePolicy</string>
-				<key>Replace</key>
-				<data>
-				dW5sb2FlAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Brumbaer's GDP Patch 3</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				RGVmYXVsdAA=
-				</data>
-				<key>Name</key>
-				<string>AppleGraphicsDevicePolicy</string>
-				<key>Replace</key>
-				<data>
-				bm9uZQAAAAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Brumbaer's GDP Patch 4</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				Q29uZmlnTWFwAA==
-				</data>
-				<key>Name</key>
-				<string>AppleGraphicsDevicePolicy</string>
-				<key>Replace</key>
-				<data>
-				Q29uZmlnTWFxAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Brumbaer's GDP Patch 5</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				RmVhdHVyZUNvbnRyb2wA
-				</data>
-				<key>Name</key>
-				<string>AppleGraphicsDevicePolicy</string>
-				<key>Replace</key>
-				<data>
-				RmVhdHVyZUNvbnRyb20A
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>[FredWst] NVIDIA Black Screen fix / Sierra</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				hcB0LEmLB0iNdaA=
-				</data>
-				<key>Name</key>
-				<string>AppleGraphicsDevicePolicy</string>
-				<key>Replace</key>
-				<data>
-				hcDrLEmLB0iNdaA=
-				</data>
-			</dict>
-		</array>
 	</dict>
 	<key>RtVariables</key>
 	<dict>

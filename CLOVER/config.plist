@@ -10,35 +10,6 @@
 			<false/>
 			<key>DropMCFG</key>
 			<false/>
-			<key>DropOEM_DSM</key>
-			<dict>
-				<key>ATI</key>
-				<false/>
-				<key>Firewire</key>
-				<false/>
-				<key>HDA</key>
-				<true/>
-				<key>HDMI</key>
-				<true/>
-				<key>IDE</key>
-				<false/>
-				<key>IntelGFX</key>
-				<true/>
-				<key>LAN</key>
-				<false/>
-				<key>LPC</key>
-				<true/>
-				<key>NVidia</key>
-				<true/>
-				<key>SATA</key>
-				<false/>
-				<key>SmBUS</key>
-				<false/>
-				<key>USB</key>
-				<false/>
-				<key>WIFI</key>
-				<false/>
-			</dict>
 			<key>Fixes</key>
 			<dict>
 				<key>AddDTGP_0001</key>
@@ -48,7 +19,7 @@
 				<key>AddIMEI_80000</key>
 				<false/>
 				<key>AddMCHC_0008</key>
-				<false/>
+				<true/>
 				<key>AddPNLF_1000000</key>
 				<false/>
 				<key>DeleteUnused_400000</key>
@@ -78,9 +49,9 @@
 				<key>FixFirewire_0800</key>
 				<false/>
 				<key>FixHDA_8000</key>
-				<false/>
+				<true/>
 				<key>FixHPET_0010</key>
-				<false/>
+				<true/>
 				<key>FixIDE_0200</key>
 				<false/>
 				<key>FixIPIC_0040</key>
@@ -203,15 +174,15 @@
 		<key>DropTables</key>
 		<array>
 			<dict>
-				<key>#Signature</key>
+				<key>Signature</key>
 				<string>SSDT</string>
-				<key>#TableId</key>
+				<key>TableId</key>
 				<string>CpuPm</string>
 			</dict>
 			<dict>
-				<key>#Signature</key>
+				<key>Signature</key>
 				<string>SSDT</string>
-				<key>#TableId</key>
+				<key>TableId</key>
 				<string>Cpu0Ist</string>
 			</dict>
 			<dict>
@@ -229,31 +200,31 @@
 		<string>0x06</string>
 		<key>SSDT</key>
 		<dict>
-			<key>DoubleFirstState</key>
+			<key>#DoubleFirstState</key>
 			<false/>
-			<key>DropOem</key>
+			<key>#EnableC2</key>
 			<false/>
-			<key>EnableC2</key>
+			<key>#EnableC4</key>
 			<false/>
-			<key>EnableC4</key>
-			<false/>
-			<key>EnableC6</key>
+			<key>#EnableC6</key>
 			<true/>
-			<key>EnableC7</key>
+			<key>#EnableC7</key>
+			<false/>
+			<key>#MinMultiplier</key>
+			<integer>7</integer>
+			<key>#PluginType</key>
+			<integer>1</integer>
+			<key>DropOem</key>
 			<false/>
 			<key>Generate</key>
 			<dict>
 				<key>CStates</key>
-				<true/>
+				<false/>
 				<key>PStates</key>
 				<true/>
 			</dict>
-			<key>MinMultiplier</key>
-			<integer>8</integer>
 			<key>PLimitDict</key>
 			<integer>0</integer>
-			<key>PluginType</key>
-			<integer>1</integer>
 			<key>UseSystemIO</key>
 			<false/>
 		</dict>
@@ -263,7 +234,7 @@
 		<key>#NoEarlyProgress</key>
 		<false/>
 		<key>Arguments</key>
-		<string></string>
+		<string>-xcpm</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>Fast</key>
@@ -414,6 +385,171 @@
 				<key>PciAddr</key>
 				<string>00:03.00</string>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Inject EH01 properties</string>
+				<key>CustomProperties</key>
+				<array>
+					<dict>
+						<key>Key</key>
+						<string>device_type</string>
+						<key>Value</key>
+						<string>EHCI</string>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>subsystem-id</string>
+						<key>Value</key>
+						<data>
+						cHIAAA==
+						</data>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>subsystem-vendor-id</string>
+						<key>Value</key>
+						<data>
+						hoAAAA==
+						</data>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>AAPL,current-available</string>
+						<key>Value</key>
+						<integer>2100</integer>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>AAPL,current-extra</string>
+						<key>Value</key>
+						<integer>2200</integer>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>AAPL,current-extra-in-sleep</string>
+						<key>Value</key>
+						<integer>1600</integer>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>AAPL,max-port-current-in-sleep</string>
+						<key>Value</key>
+						<integer>2100</integer>
+					</dict>
+				</array>
+				<key>PciAddr</key>
+				<string>00:1D.00</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Inject EH02 properties</string>
+				<key>CustomProperties</key>
+				<array>
+					<dict>
+						<key>Key</key>
+						<string>device_type</string>
+						<key>Value</key>
+						<string>EHCI</string>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>subsystem-id</string>
+						<key>Value</key>
+						<data>
+						cHIAAA==
+						</data>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>subsystem-vendor-id</string>
+						<key>Value</key>
+						<data>
+						hoAAAA==
+						</data>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>AAPL,current-available</string>
+						<key>Value</key>
+						<integer>2100</integer>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>AAPL,current-extra</string>
+						<key>Value</key>
+						<integer>2200</integer>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>AAPL,current-extra-in-sleep</string>
+						<key>Value</key>
+						<integer>1600</integer>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>AAPL,max-port-current-in-sleep</string>
+						<key>Value</key>
+						<integer>2100</integer>
+					</dict>
+				</array>
+				<key>PciAddr</key>
+				<string>00:1A.00</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Inject XHC properties</string>
+				<key>CustomProperties</key>
+				<array>
+					<dict>
+						<key>Key</key>
+						<string>device_type</string>
+						<key>Value</key>
+						<string>XHCI</string>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>subsystem-id</string>
+						<key>Value</key>
+						<data>
+						cHIAAA==
+						</data>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>subsystem-vendor-id</string>
+						<key>Value</key>
+						<data>
+						hoAAAA==
+						</data>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>AAPL,current-available</string>
+						<key>Value</key>
+						<integer>2100</integer>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>AAPL,current-extra</string>
+						<key>Value</key>
+						<integer>2200</integer>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>AAPL,current-extra-in-sleep</string>
+						<key>Value</key>
+						<integer>1600</integer>
+					</dict>
+					<dict>
+						<key>Key</key>
+						<string>AAPL,max-port-current-in-sleep</string>
+						<key>Value</key>
+						<integer>2100</integer>
+					</dict>
+				</array>
+				<key>PciAddr</key>
+				<string>00:14.00</string>
+			</dict>
 		</array>
 		<key>Audio</key>
 		<dict>
@@ -453,97 +589,12 @@
 			<true/>
 		</dict>
 		<key>UseIntelHDMI</key>
-		<true/>
+		<false/>
 	</dict>
 	<key>GUI</key>
 	<dict>
-		<key>Custom</key>
-		<dict>
-			<key>Entries</key>
-			<array>
-				<dict>
-					<key>FullTitle</key>
-					<string>OS X Sierra</string>
-					<key>Hotkey</key>
-					<string>o</string>
-					<key>InjectKexts</key>
-					<true/>
-					<key>Path</key>
-					<string>\System\Library\CoreServices\boot.efi</string>
-					<key>SubEntries</key>
-					<array>
-						<dict>
-							<key>Arguments</key>
-							<string>-v</string>
-							<key>FullTitle</key>
-							<string>Macos Sierra</string>
-							<key>InjectKexts</key>
-							<true/>
-							<key>Path</key>
-							<string>\System\Library\CoreServices\boot.efi</string>
-							<key>Title</key>
-							<string>Bootm Macos verbose</string>
-							<key>Volume</key>
-							<string>A0095F0E-8DBE-4C81-A534-3EB4B1CB19A7</string>
-						</dict>
-						<dict>
-							<key>Arguments</key>
-							<string>-v nv_disable=1</string>
-							<key>FullTitle</key>
-							<string>Macos Sierra nv_disable=1</string>
-							<key>InjectKexts</key>
-							<true/>
-							<key>Path</key>
-							<string>\System\Library\CoreServices\boot.efi</string>
-							<key>Title</key>
-							<string>Boot Macos -v -nv_disable=1</string>
-							<key>Volume</key>
-							<string>A0095F0E-8DBE-4C81-A534-3EB4B1CB19A7</string>
-							<key>VolumeType</key>
-							<string>Internal</string>
-						</dict>
-					</array>
-					<key>Title</key>
-					<string>OS X Sierra</string>
-					<key>Volume</key>
-					<string>A0095F0E-8DBE-4C81-A534-3EB4B1CB19A7</string>
-					<key>VolumeType</key>
-					<string>Internal</string>
-				</dict>
-				<dict>
-					<key>FullTitle</key>
-					<string>Macos Sierra </string>
-					<key>Path</key>
-					<string>\System\Library\CoreServices\boot.efi</string>
-					<key>Special</key>
-					<string>config_work.plist</string>
-					<key>Title</key>
-					<string>Working config</string>
-					<key>Volume</key>
-					<string>A0095F0E-8DBE-4C81-A534-3EB4B1CB19A7</string>
-					<key>VolumeType</key>
-					<string>Internal</string>
-				</dict>
-				<dict>
-					<key>FullTitle</key>
-					<string>Windows 10</string>
-					<key>Hotkey</key>
-					<string>w</string>
-					<key>Path</key>
-					<string>\EFI\Microsoft\Boot\bootmgfw.efi</string>
-					<key>Title</key>
-					<string>Windows 10</string>
-					<key>Volume</key>
-					<string>4F87DA8A-4684-418C-B98F-BA7DCE661C32</string>
-					<key>VolumeType</key>
-					<string>Internal</string>
-				</dict>
-			</array>
-		</dict>
-		<key>Hide</key>
-		<array>
-			<string>\EFI\BOOT\BOOTX64.EFI</string>
-		</array>
+		
+
 		<key>Language</key>
 		<string>ru:0</string>
 		<key>Mouse</key>
@@ -564,7 +615,7 @@
 			<key>Legacy</key>
 			<false/>
 			<key>Tool</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>ScreenResolution</key>
 		<string>1920x1200</string>
@@ -573,8 +624,6 @@
 	</dict>
 	<key>Graphics</key>
 	<dict>
-		<key>#ig-platform-id</key>
-		<string>0x04120004</string>
 		<key>Inject</key>
 		<dict>
 			<key>ATI</key>
@@ -592,6 +641,8 @@
 		<false/>
 		<key>ScreenResolution</key>
 		<string>1920x1080</string>
+		<key>ig-platform-id</key>
+		<string>0x04120004</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
@@ -615,7 +666,7 @@
 				<key>Comment</key>
 				<string>AppleGraphicsDevicePolicy (board-id) Patch (c) Pike R. Alpha</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				Ym9hcmQtaWQ=
@@ -629,119 +680,9 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>USB3 patch1 dont check chip</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				dVtJiwZIjTWC+wAATIn3/w==
-				</data>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				61tJiwZIjTWC+wAATIn3/w==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>USB3 patch2 dont check xhci version</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				4GY9AAEPguwLAABJi4bAAg==
-				</data>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				4GY9AAAPguwLAABJi4bAAg==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>USB3 patch3 interrupts-1</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				gUkIAABAAEGB5P//DwBECQ==
-				</data>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				gUkIAAAAAEGB5P//DwBECQ==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>USB3 patch4 interrupts-2</string>
+				<string>Atheros locale fix</string>
 				<key>Disabled</key>
 				<false/>
-				<key>Find</key>
-				<data>
-				QQ9Oz0HHRCQIAABAAIC9Zw==
-				</data>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				QQ9Oz0HHRCQIAAAAAIC9Zw==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>USB3 patch5 interrupts-3</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AEAAQYtGDIPgATUBHAAAgA==
-				</data>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				AAAAQYtGDIPgATUBHAAAgA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>USB3 patch6 restart after wake</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				yAAAAAHGg386AgAASIu76A==
-				</data>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				yAAAAADGg386AgAASIu76A==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>USB3 patch7 PCI PM if not DSDT</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>
-				AgAASIXAdSZIi7voAQAASA==
-				</data>
-				<key>Name</key>
-				<string>AppleUSBXHCI</string>
-				<key>Replace</key>
-				<data>
-				AgAASIXA6yZIi7voAQAASA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Atheros locale fix</string>
 				<key>Find</key>
 				<data>
 				g/s3
@@ -751,86 +692,6 @@
 				<key>Replace</key>
 				<data>
 				g/sh
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Brumbaer's GDP Patch 1</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				RURJRAA=
-				</data>
-				<key>Name</key>
-				<string>AppleGraphicsDevicePolicy</string>
-				<key>Replace</key>
-				<data>
-				RURJSQA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Brumbaer's GDP Patch 2</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				dW5sb2FkAA==
-				</data>
-				<key>Name</key>
-				<string>AppleGraphicsDevicePolicy</string>
-				<key>Replace</key>
-				<data>
-				dW5sb2FlAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Brumbaer's GDP Patch 3</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				RGVmYXVsdAA=
-				</data>
-				<key>Name</key>
-				<string>AppleGraphicsDevicePolicy</string>
-				<key>Replace</key>
-				<data>
-				bm9uZQAAAAA=
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Brumbaer's GDP Patch 4</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				Q29uZmlnTWFwAA==
-				</data>
-				<key>Name</key>
-				<string>AppleGraphicsDevicePolicy</string>
-				<key>Replace</key>
-				<data>
-				Q29uZmlnTWFxAA==
-				</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>Brumbaer's GDP Patch 5</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>
-				RmVhdHVyZUNvbnRyb2wA
-				</data>
-				<key>Name</key>
-				<string>AppleGraphicsDevicePolicy</string>
-				<key>Replace</key>
-				<data>
-				RmVhdHVyZUNvbnRyb20A
 				</data>
 			</dict>
 			<dict>
